@@ -44,7 +44,7 @@
 \merenodne{5.12.\ 2023}
 \odevzdanodne{5.12.\ 2023}
 \nazev{Měření a dostavování rezistorů}
-\cislo{6} %měřené úlohy
+\cislo{1} %měřené úlohy
 
 \predmet{Mikroelektronika a technologie součástek}
 \ustav{Ústav mikroelektroniky}
@@ -113,20 +113,58 @@
 	%====== Vygenerování tabulky ======
 	\maketitle
 
-\section{Teoretický úvod}
-  \input{tex/uvod.tex}
+\section{Vypracování}
+  Pro provedení všech simulací jsem použil dvě zapojení, jedno pro tranzistor typu NMOS (viz Obr.~\ref{fig:img-nmos-png}), druhé pak pro typ PMOS (Obr.~\ref{fig:img-pmos-png}). Napájecí uzly jsem definoval pro obě zapojení stejně, jako je vidět na třetím schématu na Obr.~\ref{fig:img-power-png}.
 
-\section{Praktická část}
-  \input{tex/prakticka}
+  SPICE kód potřebný pro simulace jsem rozdělil do několika bloků (viz Obr.~\ref{fig:img-spice-png}) a vždy přepínal mezi komentářem a spustitelným kódem. Díky tomu jsem omezil duplicitní kód a mohl využít obě schémata jednoduše pro všechny tři simulace, vždy s výběrem vhodné kombinace bloků. Bohužel s tímto konceptem možná drobně klesá přehlednost.
+
+  \begin{figure}[h!]
+    \centering
+    \includegraphics[scale=1]{img/nmos.png}
+    \caption{Zapojení s tranzistorem NMOS.}
+    \label{fig:img-nmos-png}
+  \end{figure}
+
+  \begin{figure}[h!]
+    \centering
+    \includegraphics[scale=1]{img/pmos.png}
+    \caption{Zapojení s tranzistorem PMOS.}
+    \label{fig:img-pmos-png}
+  \end{figure}
+
+  \begin{figure}[h!]
+    \centering
+    \includegraphics[scale=1]{img/power.png}
+    \caption{Definice uzlů napájení pro zbylé obvody.}
+    \label{fig:img-power-png}
+  \end{figure}
+
+  \begin{figure}[h!]
+    \centering
+    \includegraphics[width=\textwidth]{img/spice.png}
+    \caption{Všechny použité bloky SPICE kódy.}
+    \label{fig:img-spice-png}
+  \end{figure}
+
+
+  \clearpage
+\subsection{Prahové napětí \(U_{TH0} \) }
+\input{tex/1-prahove-napeti.tex}
+\subsection{Závislost prahového napětí \(U_{TH} \) na napětí bulku}
+\input{tex/2-bulk.tex}
+\subsection{Závislost modulace délky kanálu (\(\lambda\)) na délce kanálu \( L\) }
+\input{tex/3-delka-kanalu.tex}
+
+\section{Závěr}
+  % \input{tex/prakticka}
   \clearpage
 
 \section{Závěr}
-  \input{tex/zaver.tex}
+  % \input{tex/zaver.tex}
   
 \clearpage
-\section*{Reference}
-\printbibliography[heading=none]
+% \section*{Reference}
+% \printbibliography[heading=none]
 
-\includepdf[pages=1]{data/data.pdf}
 
 \end{document}
