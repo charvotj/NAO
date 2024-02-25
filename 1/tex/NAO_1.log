@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023/Debian) (preloaded format=pdflatex 2023.11.2)  25 FEB 2024 21:29
+This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023/Debian) (preloaded format=pdflatex 2023.11.2)  26 FEB 2024 00:17
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -874,7 +874,11 @@ Package biblatex Warning: 'babel/polyglossia' detected but 'csquotes' missing.
 
 \@quotelevel=\count470
 \@quotereset=\count471
-(./NAO_1.aux)
+(./NAO_1.aux
+
+LaTeX Warning: Label `tab:1-1-2_hodnoty' multiply defined.
+
+)
 \openout1 = `NAO_1.aux'.
 
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 112.
@@ -961,7 +965,7 @@ Package hyperref Info: Link coloring ON on input line 112.
 
 \c@lstlisting=\count478
 
-Overfull \hbox (7.33542pt too wide) in paragraph at lines 115--115
+Overfull \hbox (11.56361pt too wide) in paragraph at lines 115--115
  [] 
  []
 
@@ -1000,12 +1004,12 @@ Overfull \hbox (11.6905pt too wide) in paragraph at lines 115--115
  [] 
  []
 
-<img/nmos.png, id=35, 368.87813pt x 222.07968pt>
+<img/nmos.png, id=31, 368.87813pt x 222.07968pt>
 File: img/nmos.png Graphic file (type png)
 <use img/nmos.png>
 Package pdftex.def Info: img/nmos.png  used on input line 123.
 (pdftex.def)             Requested size: 368.87721pt x 222.07913pt.
-<img/pmos.png, id=37, 331.2375pt x 368.87813pt>
+<img/pmos.png, id=33, 331.2375pt x 368.87813pt>
 File: img/pmos.png Graphic file (type png)
 <use img/pmos.png>
 Package pdftex.def Info: img/pmos.png  used on input line 130.
@@ -1013,7 +1017,7 @@ Package pdftex.def Info: img/pmos.png  used on input line 130.
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
-<img/power.png, id=38, 57.96657pt x 206.27063pt>
+<img/power.png, id=34, 57.96657pt x 206.27063pt>
 File: img/power.png Graphic file (type png)
 <use img/power.png>
 Package pdftex.def Info: img/power.png  used on input line 137.
@@ -1021,11 +1025,11 @@ Package pdftex.def Info: img/power.png  used on input line 137.
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
-<img/spice.png, id=39, 801.74532pt x 613.54219pt>
+<img/spice.png, id=35, 816.04875pt x 635.37375pt>
 File: img/spice.png Graphic file (type png)
 <use img/spice.png>
 Package pdftex.def Info: img/spice.png  used on input line 144.
-(pdftex.def)             Requested size: 455.2441pt x 348.38393pt.
+(pdftex.def)             Requested size: 455.2441pt x 354.44957pt.
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
@@ -1049,56 +1053,82 @@ LaTeX Warning: No positions in optional float specifier.
 LaTeX Warning: No positions in optional float specifier.
                Default added (so using `tbp') on input line 21.
 
-)
+) [4
 
-Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 153.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `subscript' on input line 153.
-
-(./tex/2-bulk.tex)
+]
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
 (hyperref)                removing `math shift' on input line 155.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `\lambda' on input line 155.
+(hyperref)                removing `subscript' on input line 155.
+
+(./tex/2-bulk.tex
+
+LaTeX Warning: No positions in optional float specifier.
+               Default added (so using `tbp') on input line 1.
+
+PGFPlots: reading {data/1-2.csv}
+PGFPlots: reading {data/1-2.csv}
+
+Overfull \hbox (15.04677pt too wide) in paragraph at lines 46--47
+[][] 
+ []
+
+) [5
+
+]
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `math shift' on input line 159.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 155.
+(hyperref)                removing `\lambda' on input line 159.
 
-(./tex/3-delka-kanalu.tex) [4
 
-] [5
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `math shift' on input line 159.
+
+(./tex/3-delka-kanalu.tex
+PGFPlots: reading {data/1-3.csv}
+PGFPlots: reading {data/1-3.csv}
+
+
+LaTeX Warning: No positions in optional float specifier.
+               Default added (so using `tbp') on input line 33.
+
+) [6
 
 ] (./NAO_1.aux)
  ***********
 LaTeX2e <2023-06-01>
 L3 programming layer <2023-06-05>
  ***********
+
+
+LaTeX Warning: There were multiply-defined labels.
+
 Package rerunfilecheck Info: File `NAO_1.out' has not changed.
-(rerunfilecheck)             Checksum: CDB6A8997A005A06435684F38053F7EC;1144.
+(rerunfilecheck)             Checksum: 393711F72DD1ABEFA78F50F1274512B1;1070.
 Package logreq Info: Writing requests to 'NAO_1.run.xml'.
 \openout1 = `NAO_1.run.xml'.
 
  ) 
 Here is how much of TeX's memory you used:
- 45823 strings out of 476790
- 1061805 string characters out of 5804675
- 1918797 words of memory out of 5000000
- 65763 multiletter control sequences out of 15000+600000
+ 46340 strings out of 476790
+ 1076599 string characters out of 5804675
+ 1918939 words of memory out of 5000000
+ 66270 multiletter control sequences out of 15000+600000
  520703 words of font info for 59 fonts, out of 8000000 for 9000
  473 hyphenation exceptions out of 8191
- 84i,13n,87p,854b,1691s stack positions out of 10000i,1000n,20000p,200000b,200000s
- </home/jakub/.texlive2023/texmf-var/fonts/pk/ljfour/jknappen/ec/tcrm1200.600pk></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb>
-Output written on NAO_1.pdf (5 pages, 252567 bytes).
+ 84i,19n,87p,854b,2322s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ </home/jakub/.texlive2023/texmf-var/fonts/pk/ljfour/jknappen/ec/tcrm1200.600pk></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb>
+Output written on NAO_1.pdf (6 pages, 280785 bytes).
 PDF statistics:
- 124 PDF objects out of 1000 (max. 8388607)
- 91 compressed objects within 1 object stream
- 18 named destinations out of 1000 (max. 500000)
- 81 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 140 PDF objects out of 1000 (max. 8388607)
+ 101 compressed objects within 2 object streams
+ 22 named destinations out of 1000 (max. 500000)
+ 73 words of extra memory for PDF output out of 10000 (max. 10000000)
 

@@ -1,0 +1,48 @@
+\begin{table}[]
+    \def\arraystretch{1.2}
+    \centering
+    \begin{tabular}{|l|l|l|}
+    \hline
+    \(U_{SB} \) [V]  & \(U_{TH N}\) [mV] & \(U_{TH P}\) [mV] \\ \hline\hline
+    0          & 387,106  & 443,3  \\ \hline
+0,05           & 406,335  & 459,39  \\ \hline
+    0,1        & 420,771  & 475,16  \\ \hline
+0,15           & 434,894  & 490,64  \\ \hline
+    0,2        & 448,718  & 505,85  \\ \hline
+0,25           & 462,268  & 520,8  \\ \hline
+    0,3        & 475,556  & 535,506  \\ \hline
+0,35           & 488,6    & 549,989  \\ \hline
+    0,4        & 501,413  & 564,254  \\ \hline
+0,45           & 514,011  & 578,318  \\ \hline
+    0,5        & 526,4    & 592,191  \\ \hline
+    \end{tabular}
+    \caption{Prahové napětí podle 1.2.}
+    \label{tab:1-1-2_hodnoty}
+\end{table}
+
+\begin{figure*}[h!]
+    \begin{tikzpicture}
+        \centering
+        \begin{axis}
+            [
+            xlabel={\( U_{SB/BS}\ [\unit{\volt}]\)},
+            ylabel={\( U_{TH} \ [\unit{\milli\volt}]\)},
+            width=1\textwidth,
+            height = 0.5\textwidth,
+            legend pos=north west,
+%			xmin=0,
+%			ymin=0,
+%			xmax=100
+%			ymax=100
+            ]
+
+            \addplot[mark=x, mark options={solid}, thick, red, mark size=3pt] table [x=USB, y=UTHN, col sep=comma] {data/1-2.csv};
+            \addlegendentry{NMOS}
+            
+            \addplot[mark=x, mark options={solid}, thick, blue, mark size=3pt] table [x=USB, y=UTHP, col sep=comma] {data/1-2.csv};
+            \addlegendentry{PMOS}
+            
+        \end{axis}       
+    \end{tikzpicture}
+    \caption{Závislost prahového napětí \(U_{TH N/P} \) na napětí na bulku. }
+\end{figure*}

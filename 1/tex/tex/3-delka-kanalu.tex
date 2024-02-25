@@ -1,0 +1,48 @@
+\begin{figure*}[h!]
+    \begin{tikzpicture}
+        \centering
+        \begin{axis}
+            [
+            xlabel={\( L\ [\unit{\micro\meter}]\)},
+            ylabel={\( \lambda\ [\unit{\per\volt}]\)},
+            %axis y line*=left, % dve y osy
+            width=1\textwidth,
+            height = 0.5\textwidth,
+            legend pos=north east,
+%			xmin=0,
+%			ymin=0,
+%			xmax=100
+%			ymax=100
+            ]
+
+            \addplot[mark=none, mark options={solid}, thick, red, solid, mark size=3pt] table [x=L, y=lambdan, col sep=comma] {data/1-3.csv};
+            
+            \addlegendentry{NMOS}
+
+            \addplot[mark=none, mark options={solid}, thick, blue, solid, mark size=3pt] table [x=L, y=lambdap, col sep=comma] {data/1-3.csv};
+            
+            \addlegendentry{PMOS}
+            
+        \end{axis}   
+     
+    \end{tikzpicture}
+    \caption{Závislost modulace délky kanálu na délce kanálu.}
+\end{figure*}
+
+
+\begin{table}[]
+    \def\arraystretch{1.2}
+    \centering
+    \begin{tabular}{|l|l|l|}
+    \hline
+    \(L \) [\unit{\micro\meter}]  & \(\lambda_{NMOS} \) [\unit{\per\volt}] & \(\lambda_{PMOS} \) [\unit{\per\volt}] \\ \hline\hline
+    0,50  & 0,118405  &  0,199965        \\ \hline
+    0,80  & 0,0864604  &  0,144768       \\ \hline
+    1,00  & 0,0744184  &  0,124192       \\ \hline
+    1,20  & 0,0654639  &  0,109762       \\ \hline
+    2,00  & 0,0437895  &  0,0787697      \\ \hline
+    5,00  & 0,0186175  &  0,0459268      \\ \hline
+\end{tabular}
+\caption{Vypočítané hodnoty modulace délky kanálu dle 1.3.}
+\label{tab:1-3_hodnoty}
+\end{table}
