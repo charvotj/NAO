@@ -1,0 +1,9 @@
+[0] Config.pm:307> INFO - This is Biber 2.19
+[0] Config.pm:310> INFO - Logfile is 'NAO_3.blg'
+[92] biber:340> INFO - === Po bře 11, 2024, 14:11:39
+[112] Biber.pm:419> INFO - Reading 'NAO_3.bcf'
+[191] Biber.pm:979> INFO - Found 0 citekeys in bib section 0
+[208] bbl.pm:660> INFO - Writing 'NAO_3.bbl' with encoding 'UTF-8'
+[209] bbl.pm:763> INFO - Output to NAO_3.bbl
+[209] Biber.pm:131> WARN - The file 'NAO_3.bcf' does not contain any citations!
+[209] Biber.pm:133> INFO - WARNINGS: 1

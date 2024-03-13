@@ -1,0 +1,166 @@
+% !TeX encoding = UTF-8
+
+\documentclass{protokol}
+
+\usepackage{pdfpages}
+\usepackage{tikz}
+\usetikzlibrary{calc}
+\usetikzlibrary{arrows}
+
+%====== Units =====
+\usepackage{siunitx}
+\sisetup{inter-unit-product =\ensuremath{\cdot}}
+\sisetup{group-digits = integer}
+\sisetup{output-decimal-marker = {,}}
+\sisetup{exponent-product = \ensuremath{\cdot}}
+\sisetup{separate-uncertainty}
+\sisetup{tight-spacing = false}
+%\sisetup{scientific-notation = true}
+%\sisetup{round-mode=places,round-precision=4}
+%\sisetup{evaluate-expression}
+
+
+%====== Grafy =====
+\usepackage{pgfplots}
+\pgfplotsset{width=0.8\linewidth, compat=1.17}
+\def\plotcscale{0.8}
+\usepackage{pgfplotstable}
+\usepackage[figurename=Obr.]{caption} % figure caption rename
+
+%====== Rovnice align block ======
+\usepackage{amsmath}
+\setlength{\jot}{10pt} % rozestup mezi řádky
+
+\graphicspath{ {./img/} }
+
+%====== Vyplňte údaje ======
+\jmeno{Jakub Charvot}
+\kod{240844}
+\rocnik{3.}
+\obor{MET}
+\skupina{MET/2}
+\spolupracoval{--}
+
+\merenodne{19.02.\ 2024}
+\odevzdanodne{25.02.\ 2024}
+\nazev{Extrakce parametrů tranzistorů MOSFET ze SPICE modelu }
+\cislo{1} %měřené úlohy
+
+\predmet{Návrh analogových integrovaných obvodů}
+\ustav{Ústav mikroelektroniky}
+\skola{FEKT VUT v~Brně}
+
+\def\para{x+0}
+\def\parb{\para-80}
+
+
+%citace 
+\usepackage[backend=biber, style=iso-numeric, sortlocale=cs_CZ, autolang=other, language=czech]{biblatex}
+\addbibresource{bibliography.bib}
+\DeclareFieldFormat{labelnumberwidth}{\mkbibbrackets{#1}}
+% hyperlinky
+\usepackage[colorlinks]{hyperref}
+
+% odstavce
+\usepackage{parskip}
+
+% Bloky kódu
+\usepackage{xcolor}
+
+%New colors defined below
+\definecolor{codegreen}{rgb}{0,0.6,0}
+\definecolor{codegray}{rgb}{0.5,0.5,0.5}
+\definecolor{codepurple}{rgb}{0.58,0,0.82}
+\definecolor{backcolour}{rgb}{0.95,0.95,0.92}
+
+\usepackage{listings}
+\lstdefinestyle{mystyle}{
+  backgroundcolor=\color{backcolour}, commentstyle=\color{codegreen},
+  keywordstyle=\color{magenta},
+  numberstyle=\tiny\color{codegray},
+  stringstyle=\color{codepurple},
+  basicstyle=\ttfamily\footnotesize,
+  breakatwhitespace=false,         
+  breaklines=true,                 
+  captionpos=b,                    
+  keepspaces=true,                 
+  numbers=left,                    
+  numbersep=5pt,                  
+  showspaces=false,                
+  showstringspaces=false,
+  showtabs=false,                  
+  tabsize=2
+}
+\lstset{
+	inputencoding=utf8,
+	extendedchars=true,
+	literate={á}{{\'a}}1 {č}{{\v{c}}}1 {ď}{{\v{d}}}1 {é}{{\'e}}1 {ě}{{\v{e}}}1 
+           {í}{{\'i}}1 {ň}{{\v{n}}}1 {ó}{{\'o}}1 {ř}{{\v{r}}}1 {š}{{\v{s}}}1 
+           {ť}{{\v{t}}}1 {ú}{{\'u}}1 {ů}{{\r{u}}}1 {ý}{{\'y}}1 {ž}{{\v{z}}}1 
+           {Á}{{\'A}}1 {Č}{{\v{C}}}1 {Ď}{{\v{D}}}1 {É}{{\'E}}1 {Ě}{{\v{E}}}1 
+           {Í}{{\'I}}1 {Ň}{{\v{N}}}1 {Ó}{{\'O}}1 {Ř}{{\v{R}}}1 {Š}{{\v{S}}}1 
+           {Ť}{{\v{T}}}1 {Ú}{{\'U}}1 {Ů}{{\r{U}}}1 {Ý}{{\'Y}}1 {Ž}{{\v{Z}}}1,
+	style=mystyle
+	}
+
+% Číslování
+\pagenumbering{arabic}
+
+% =========================================
+% =============== DOKUMENT ================
+% =========================================
+\begin{document}
+	%====== Vygenerování tabulky ======
+	\maketitle
+
+\section{Vypracování}
+  Pro provedení všech simulací jsem použil dvě zapojení, jedno pro tranzistor typu NMOS (viz Obr.~\ref{fig:img-nmos-png}), druhé pak pro typ PMOS (Obr.~\ref{fig:img-pmos-png}). Napájecí uzly jsem definoval pro obě zapojení stejně, jako je vidět na třetím schématu na Obr.~\ref{fig:img-power-png}.
+
+  SPICE kód potřebný pro simulace jsem rozdělil do několika bloků (viz Obr.~\ref{fig:img-spice-png}) a vždy přepínal mezi komentářem a spustitelným kódem. Díky tomu jsem omezil duplicitní kód a mohl využít obě schémata jednoduše pro všechny tři simulace, vždy s výběrem vhodné kombinace bloků. Bohužel s tímto konceptem možná drobně klesá přehlednost.
+
+  \begin{figure}[h!]
+    \centering
+    \includegraphics[scale=1]{img/nmos.png}
+    \caption{Zapojení s tranzistorem NMOS.}
+    \label{fig:img-nmos-png}
+  \end{figure}
+
+  \begin{figure}[h!]
+    \centering
+    \includegraphics[scale=1]{img/pmos.png}
+    \caption{Zapojení s tranzistorem PMOS.}
+    \label{fig:img-pmos-png}
+  \end{figure}
+
+  \begin{figure}[h!]
+    \centering
+    \includegraphics[scale=1]{img/power.png}
+    \caption{Definice uzlů napájení pro zbylé obvody.}
+    \label{fig:img-power-png}
+  \end{figure}
+
+  \begin{figure}[h!]
+    \centering
+    \includegraphics[width=\textwidth]{img/spice.png}
+    \caption{Všechny použité bloky SPICE kódy.}
+    \label{fig:img-spice-png}
+  \end{figure}
+
+
+  \clearpage
+\subsection{Výpočty }
+\input{tex/vypocty.tex}
+
+
+\section{Závěr}
+  V první části úlohy jsme stanovovali prahové napětí tranzistoru při zachování konstantníhi poměru délky a šířky kanálu. Z výsledků je vidět, že pro rostoucí délku kanálu prahové napětí klesá. V další podúloze jsme měnili poměr W/L, z čehož vyplynulo, že šířka kanálu W nemá na prahové napětí významný vliv, podstatnější je délka.
+
+  Ve druhé části úlohy jsme neovlivňovali délku ani šířku kanálu, ale připojovali jsme napětí na bulk, tedy substrát tranzistoru, čímž jsme simulovali tzv. Body efekt. S nárustém napětí na bulku roste také prahové napětí tranzistoru. 
+
+  V poslední části jsme počítali modulaci délky kanálu v závislosti na samotné délce kanálu. U obou typů tranzistorů s rostoucí délkou tranzistoru tento efekt klesá.
+
+% \section*{Reference}
+% \printbibliography[heading=none]
+
+
+\end{document}
