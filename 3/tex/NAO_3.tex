@@ -114,50 +114,30 @@
 	\maketitle
 
 \section{Vypracování}
-  Pro provedení všech simulací jsem použil dvě zapojení, jedno pro tranzistor typu NMOS (viz Obr.~\ref{fig:img-nmos-png}), druhé pak pro typ PMOS (Obr.~\ref{fig:img-pmos-png}). Napájecí uzly jsem definoval pro obě zapojení stejně, jako je vidět na třetím schématu na Obr.~\ref{fig:img-power-png}.
-
-  SPICE kód potřebný pro simulace jsem rozdělil do několika bloků (viz Obr.~\ref{fig:img-spice-png}) a vždy přepínal mezi komentářem a spustitelným kódem. Díky tomu jsem omezil duplicitní kód a mohl využít obě schémata jednoduše pro všechny tři simulace, vždy s výběrem vhodné kombinace bloků. Bohužel s tímto konceptem možná drobně klesá přehlednost.
-
-  \begin{figure}[h!]
-    \centering
-    \includegraphics[scale=1]{img/nmos.png}
-    \caption{Zapojení s tranzistorem NMOS.}
-    \label{fig:img-nmos-png}
-  \end{figure}
-
-  \begin{figure}[h!]
-    \centering
-    \includegraphics[scale=1]{img/pmos.png}
-    \caption{Zapojení s tranzistorem PMOS.}
-    \label{fig:img-pmos-png}
-  \end{figure}
-
-  \begin{figure}[h!]
-    \centering
-    \includegraphics[scale=1]{img/power.png}
-    \caption{Definice uzlů napájení pro zbylé obvody.}
-    \label{fig:img-power-png}
-  \end{figure}
-
-  \begin{figure}[h!]
-    \centering
-    \includegraphics[width=\textwidth]{img/spice.png}
-    \caption{Všechny použité bloky SPICE kódy.}
-    \label{fig:img-spice-png}
-  \end{figure}
+\begin{figure}[h!]
+  \centering
+  \includegraphics[scale=0.5]{spice0.png}
+  \caption{Společná část SPICE kódu a napájecí zdroj.}
+  \label{fig:spice0-png}
+\end{figure}
+ 
+\subsection{Zdroj referenčního proudu}
+\input{tex/ref-proud.tex}
 
 
   \clearpage
-\subsection{Výpočty }
-\input{tex/vypocty.tex}
+\subsection{Zdroj referenčního napětí }
+\input{tex/ref-napeti.tex}
 
-
+\clearpage
 \section{Závěr}
-  V první části úlohy jsme stanovovali prahové napětí tranzistoru při zachování konstantníhi poměru délky a šířky kanálu. Z výsledků je vidět, že pro rostoucí délku kanálu prahové napětí klesá. V další podúloze jsme měnili poměr W/L, z čehož vyplynulo, že šířka kanálu W nemá na prahové napětí významný vliv, podstatnější je délka.
+  V první části úlohy šlo o vytvoření proudové reference nezávislé na napájecím napětí, na Obr. \ref{fig:img/3-1-4.pdf} lze vidět, že zcela nezávislá není, ale výstupní proud je podstatně stabilnější než v předchozí úloze. 
 
-  Ve druhé části úlohy jsme neovlivňovali délku ani šířku kanálu, ale připojovali jsme napětí na bulk, tedy substrát tranzistoru, čímž jsme simulovali tzv. Body efekt. S nárustém napětí na bulku roste také prahové napětí tranzistoru. 
+  Abychom spolehlivě zajistili dosažení správného pracovního bodu, je potřeba připojit tzv. startovací obvod, pro zvolené hodnoty součástek dojde k dosažení prac. bodu v čase přibližně \qty{25}{\micro\second} po připojení napájení (viz Obr. \ref{fig:img/3-1-6.pdf}). 
 
-  V poslední části jsme počítali modulaci délky kanálu v závislosti na samotné délce kanálu. U obou typů tranzistorů s rostoucí délkou tranzistoru tento efekt klesá.
+  Ve druhé části úlohy jsme vytvářeli jednoduchou napěťovou referenci, ta ke své funkci potřebuje proudový zdroj. Nakolik bude napěťová reference nezávislá na změně napájecího napětí záleží zejména na kvalitě použitého proudového zdroje. Jenoduchý rezistor není příliš vhodný (z hlediska nezávislosti výstupu) a je vhodné jako vstup využít např. námi vytvořenou proudovou referenci. Porovnání obou scénářů se nachází na Obr. \ref{fig:img/3-2-3.pdf}. 
+
+  Co se týče mého způsobu "spínání" částí obvodu za pomoci rezistorů s malou resp. velkou hodnotou odporu, která principiálně neovlivní dané zapojení, nemohu říci, že by se metoda osvědčila. V několika simulacích jsem musel od tohoto způsobu upustit, protože SPICE se zřejmě pro některé uzly dostával k hodnotám příliš malým a pracoval velmi neefektivně nebo simulace nekonvergovala vůbec, pro příště tedy budu muset zvolit jiný způsob.  
 
 % \section*{Reference}
 % \printbibliography[heading=none]
