@@ -1,10 +1,10 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023/Debian) (preloaded format=pdflatex 2023.11.2)  9 MAR 2024 16:33
+This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023/Debian) (preloaded format=pdflatex 2024.3.14)  17 MAR 2024 15:38
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
  %&-line parsing enabled.
-**"/run/media/jakub/DATA/Jakub/Dokumenty/VUT/OneDrive - Vysoké učení technické v Brně/Tretak/NAO/2/tex/NAO_2.tex"
-(/run/media/jakub/DATA/Jakub/Dokumenty/VUT/OneDrive - Vysoké učení technické v Brně/Tretak/NAO/2/tex/NAO_2.tex
+**"/run/media/jakub/DATA/Jakub/Dokumenty/VUT/OneDrive - Vysoké učení technické v Brně/Tretak/NAO/labs/2/tex/NAO_2.tex"
+(/run/media/jakub/DATA/Jakub/Dokumenty/VUT/OneDrive - Vysoké učení technické v Brně/Tretak/NAO/labs/2/tex/NAO_2.tex
 LaTeX2e <2023-06-01>
 L3 programming layer <2023-06-05>
 (./protokol.cls (/usr/share/texlive/texmf-dist/tex/latex/base/article.cls
@@ -1000,63 +1000,83 @@ Overfull \hbox (11.6905pt too wide) in paragraph at lines 115--115
  [] 
  []
 
-<img/nmos.png, id=27, 368.87813pt x 222.07968pt>
-File: img/nmos.png Graphic file (type png)
-<use img/nmos.png>
-Package pdftex.def Info: img/nmos.png  used on input line 123.
-(pdftex.def)             Requested size: 368.87721pt x 222.07913pt.
-<img/pmos.png, id=29, 331.2375pt x 368.87813pt>
-File: img/pmos.png Graphic file (type png)
-<use img/pmos.png>
-Package pdftex.def Info: img/pmos.png  used on input line 130.
-(pdftex.def)             Requested size: 331.23668pt x 368.87721pt.
+<./img/spice0.png, id=51, 428.35031pt x 313.9228pt>
+File: ./img/spice0.png Graphic file (type png)
+<use ./img/spice0.png>
+Package pdftex.def Info: ./img/spice0.png  used on input line 120.
+(pdftex.def)             Requested size: 171.33708pt x 125.5669pt.
+<./img/spice1.png, id=53, 1014.79124pt x 415.5525pt>
+File: ./img/spice1.png Graphic file (type png)
+<use ./img/spice1.png>
+Package pdftex.def Info: ./img/spice1.png  used on input line 128.
+(pdftex.def)             Requested size: 405.9093pt x 166.21805pt.
+(./tex/jednoduche-zrcadlo.tex [1
 
-LaTeX Warning: `!h' float specifier changed to `!ht'.
+{/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map} <./img/spice0.png> <./img/spice1.png>]
+<./img/2-1.pdf, id=71, 462.52798pt x 346.89601pt>
+File: ./img/2-1.pdf Graphic file (type pdf)
+<use ./img/2-1.pdf>
+Package pdftex.def Info: ./img/2-1.pdf  used on input line 41.
+(pdftex.def)             Requested size: 364.19666pt x 273.16087pt.
+) [2{/usr/share/texmf/fonts/enc/dvips/cm-super/cm-super-ts1.enc} <./img/2-1.pdf>]
+<./img/spice2.png, id=120, 1117.92656pt x 636.12656pt>
+File: ./img/spice2.png Graphic file (type png)
+<use ./img/spice2.png>
+Package pdftex.def Info: ./img/spice2.png  used on input line 139.
+(pdftex.def)             Requested size: 447.1627pt x 254.4461pt.
+ (./tex/kaskodove.tex [3
 
-<img/power.png, id=30, 57.96657pt x 206.27063pt>
-File: img/power.png Graphic file (type png)
-<use img/power.png>
-Package pdftex.def Info: img/power.png  used on input line 137.
-(pdftex.def)             Requested size: 57.96642pt x 206.27011pt.
+ <./img/spice2.png>]
+<./img/2-2.pdf, id=127, 462.52798pt x 346.89601pt>
+File: ./img/2-2.pdf Graphic file (type pdf)
+<use ./img/2-2.pdf>
+Package pdftex.def Info: ./img/2-2.pdf  used on input line 45.
+(pdftex.def)             Requested size: 364.19666pt x 273.16087pt.
+) [4 <./img/2-2.pdf>]
+<./img/spice3.png, id=159, 1288.0622pt x 609.77812pt>
+File: ./img/spice3.png Graphic file (type png)
+<use ./img/spice3.png>
+Package pdftex.def Info: ./img/spice3.png  used on input line 150.
+(pdftex.def)             Requested size: 515.21574pt x 243.90692pt.
 
-LaTeX Warning: `!h' float specifier changed to `!ht'.
+Overfull \hbox (59.97165pt too wide) in paragraph at lines 150--151
+ [][] 
+ []
 
-<img/spice.png, id=31, 816.04875pt x 635.37375pt>
-File: img/spice.png Graphic file (type png)
-<use img/spice.png>
-Package pdftex.def Info: img/spice.png  used on input line 144.
-(pdftex.def)             Requested size: 455.2441pt x 354.44957pt.
+(./tex/wilsonovo.tex [5
 
-LaTeX Warning: `!h' float specifier changed to `!ht'.
+ <./img/spice3.png>]
+<./img/2-3.pdf, id=167, 462.52798pt x 346.89601pt>
+File: ./img/2-3.pdf Graphic file (type pdf)
+<use ./img/2-3.pdf>
+Package pdftex.def Info: ./img/2-3.pdf  used on input line 45.
+(pdftex.def)             Requested size: 364.19666pt x 273.16087pt.
+) [6 <./img/2-3.pdf>] [7
 
-[1
-
-{/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map} <./img/nmos.png>] [2 <./img/pmos.png> <./img/power.png>] [3 <./img/spice.png>] (./tex/vypocty.tex [4
-
-]) [5] (./NAO_2.aux)
+] (./NAO_2.aux)
  ***********
 LaTeX2e <2023-06-01>
 L3 programming layer <2023-06-05>
  ***********
 Package rerunfilecheck Info: File `NAO_2.out' has not changed.
-(rerunfilecheck)             Checksum: D732F1C21D6EE317B8627BA7432C827C;399.
+(rerunfilecheck)             Checksum: 799A509CED3936438D028FD6601F0BD5;1840.
 Package logreq Info: Writing requests to 'NAO_2.run.xml'.
 \openout1 = `NAO_2.run.xml'.
 
  ) 
 Here is how much of TeX's memory you used:
- 45798 strings out of 476790
- 1061303 string characters out of 5804675
- 1918699 words of memory out of 5000000
- 65748 multiletter control sequences out of 15000+600000
+ 45875 strings out of 476790
+ 1062957 string characters out of 5804675
+ 1918965 words of memory out of 5000000
+ 65805 multiletter control sequences out of 15000+600000
  519637 words of font info for 55 fonts, out of 8000000 for 9000
  473 hyphenation exceptions out of 8191
- 84i,12n,87p,854b,1691s stack positions out of 10000i,1000n,20000p,200000b,200000s
- </home/jakub/.texlive2023/texmf-var/fonts/pk/ljfour/jknappen/ec/tcrm1200.600pk></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb>
-Output written on NAO_2.pdf (5 pages, 270787 bytes).
+ 84i,13n,87p,1091b,1691s stack positions out of 10000i,1000n,20000p,200000b,200000s
+</usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi7.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfrm1200.pfb>
+Output written on NAO_2.pdf (7 pages, 507411 bytes).
 PDF statistics:
- 119 PDF objects out of 1000 (max. 8388607)
- 84 compressed objects within 1 object stream
- 14 named destinations out of 1000 (max. 500000)
- 65 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 260 PDF objects out of 1000 (max. 8388607)
+ 212 compressed objects within 3 object streams
+ 27 named destinations out of 1000 (max. 500000)
+ 136 words of extra memory for PDF output out of 10000 (max. 10000000)
 
