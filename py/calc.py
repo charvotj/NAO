@@ -46,6 +46,8 @@ def parse_and_calc(eq):
     # Example usage
     eq = substitute_numbers(eq)
     eq = substitute_fractions(eq)
+    eq = substitute_fractions(eq)
+    eq = substitute_fractions(eq)
     eq = substitute_symbols(eq)
 
 
