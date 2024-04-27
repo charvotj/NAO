@@ -1,1 +1,14 @@
 NAO_PC.pdf
+*.aux
+*.bcf
+*.blg
+*.fdb_latexmk
+*.fls
+*.log
+*.out
+*.net
+*.raw
+*.bbl
+*.xml
+*.gz
+*.net
