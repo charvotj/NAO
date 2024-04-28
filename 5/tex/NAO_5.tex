@@ -28,6 +28,7 @@
 
 %====== Rovnice align block ======
 \usepackage{amsmath}
+\usepackage{amssymb} % Required for \geqq
 \setlength{\jot}{10pt} % rozestup mezi řádky
 
 \graphicspath{ {./img/} }
@@ -142,6 +143,35 @@
 
 \clearpage
 \section{Závěr}
+  Cílem úlohy bylo navrhnout dvoustupňový zesilovač splňující požadovaná kritéria. Na základě požadavků byl proveden ruční návrh a teké ruční výpočet předpokládaných výstupních parametrů, následně byl návrh prověřen simulacemi. Porovnání získaných hodnot se nachází v Tab. \ref{tab:porovani-hodnot}. 
+  
+  Pro všechny parametry vyšla simulace o něco hůře, než byl předpoklad na základě výpočtů. S jistou rezervou (oproti požadavkům) vyšlo zesílení, SR a amplitudová rezerva. Naopak šířka pásma a fázová rezerva nedosahují požadovaných hodnot.
+
+
+\begin{table}[ht!]
+  \def\arraystretch{1.2}
+  \centering
+  \caption{Požadované parametry dvoustupňového OTA}
+  \begin{tabular}{|l|c|c|c|}
+    \hline Parametr & Hodnota & Vypočítané & Simulace \\
+    \hline \hline Zesílení $\left(A_{U 0}\right)$ & $\geqq 60 \mathrm{~dB}$ & \qty{76.83}{dB} & \qty{75.54}{dB} \\
+    \hline Šířka pásma $(G B W)$ & $\geqq 10 \mathrm{MHz}$ & \qty{10.61}{MHz} & \qty{8.91}{MHz}\\
+    \hline Fázová rezerva $(P M)$ & $\geqq 60^{\circ}$ & $60^{\circ}$ & \qty{55.29}{\degree}\\
+    \hline Amplitudová rezerva $(A M)$ & $-* 2 \mathrm{~dB}$ & nepoč. & \qty{-15.19}{dB}\\
+    \hline Rychlost přeběhu $(S R)^{* 1}$ & $\geqq 5 \mathrm{~V} / \mu \mathrm{s}$ & \qty{13.33}{V \per\micro s} & \qty{7.91}{V\per \micro s}\\
+    \hline Systematický offset při $U_{I N}=U_{A N G D}\left(U_{O F F}\right)$ & $\leqq 500 \mu \mathrm{V}$ & 0 & \qty{53,17}{\micro V}\\
+    \hline Spotřeba $\left(P_{D I S S}\right)$ & $-{ }^{* 2} \mathrm{~W}$ & \qty{252.00}{\micro W}  & \qty{265.59}{\micro W}\\
+    \hline Vstupní rozsah souhlasného napětí $(I C M R)$ & $-{ }^{* 2} \mathrm{~V}$ & \num{0.14} - \qty{0.84}{V} & \num{0.3} - \qty{1.01}{V}\\
+    \hline Výstupní napětový rozsah $(O V S)$ & $-{ }^{* 2} \mathrm{~V}$ & \qty{1.4}{V} & \num{0.37} - \qty{1.44}{V}\\
+    \hline
+    \end{tabular} \\
+    \vspace{10pt}
+    \raggedright
+    ${ }^{* 1}$ Pro nástupnou i sestupnou hranu $\left(S R_{\text {rise }}, S R_{\text {fall }}\right)$
+
+    ${ }^{* 2}$ Není stanovena požadovaná hodnota
+  \end{table}
+  \label{tab:porovani-hodnot}
 
 
 \end{document}

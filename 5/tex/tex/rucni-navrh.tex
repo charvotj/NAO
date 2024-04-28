@@ -14,7 +14,7 @@ Dále je potřeba stanovit minimální potřebné proudy v obvodu:
 \end{align*}
 
 \begin{align*}
-    SR_{int}  &= \frac{I_{5}}{C_{C} } \\ 
+    SR_{int}  &= \frac{I_{p3}}{C_{C} } \\ 
     I_{p3} &= SR_{int}\cdot C_{C}  \\
     I_{p3} &= \num{5e6}\cdot \num{1.5e-12}  \\
     I_{p3} &= \qty{7.5}{\micro A}  \\
@@ -53,72 +53,59 @@ Dále je potřeba stanovit minimální potřebné proudy v obvodu:
 
     
 
-% \subsubsection{OLD:}
-% l
-% Jako první krok je potřeba stanovit proud obvodem. Vyjdeme z požadovaných parametrů zapojení:
-%     \begin{align*}
-%         SR & =\frac{I_D}{C_{OUT}} \\
-%         I_{D-SR}  & =SR\cdot C_{OUT} \\
-%         I_{D-SR}  & =\num{10e6}\cdot \num{1e-12} \\
-%         I_{D-SR}  & =\qty{10}{\micro\ampere} 
-%     \end{align*}
-    
-%     \begin{align*}
-%         GBW & =\frac{g_{m 1}}{2 \cdot \pi \cdot C_{O U T}}=\frac{\frac{2 \cdot I_D}{U_{O V}}}{2 \cdot \pi \cdot C_{O U T}} \\
-%         I_{D-GBW}  & =GBW\cdot \pi \cdot C_{OUT} \cdot U_{OV} \\
-%         I_{D-GBW}  & =\num{10e6}\cdot \pi \cdot \num{1e-12} \cdot \num{0.2} \\
-%         I_{D-GBW}  & =\qty{6.28}{\micro A}
-%     \end{align*}
+\subsubsection{Předpokládané hodnoty parametrů}
+    Na základě zvolených hodnot proudů a rozměrů součástek je potřeba znovu přepočítat některé parametry:
+    \begin{align*}
+        GBW &= \frac{\frac{2\cdot I_{1} }{U_{OV1} }}{2\cdot \pi \cdot C_{C} } \\ 
+        GBW &= \frac{\frac{2\cdot \num{10e-6} }{\num{0.2} }}{2\cdot \pi \cdot \num{1.5e-12} } \\ 
+        GBW &= \qty{10.61}{MHz}
+    \end{align*}
 
+    \begin{align*}
+        SR_{int}  &= \frac{I_{p3}}{C_{C} } \\ 
+        SR_{int}  &= \frac{\num{20e-6}}{\num{1.5e-12}} \\ 
+        SR_{int}  &= \qty{13.33}{V \per\micro s}
+    \end{align*}
 
-%     Zvolíme vyšší z vypočtených hodnot, tedy proud naším zapojením \(I_{D} = I_{D-SR} = \qty{10}{\micro\ampere} \). Pro rozměry tranzistoru je ještě potřeba zohlednit požadavek na zesílení, který nám stanoví maximální povolenou hodnotu \(\lambda_{max}  \):
-    
-%     \begin{align*}
-%         A_{U 0} & =\frac{2}{U_{O V}} \cdot \frac{U_{C C}}{U_{C C} \cdot \lambda_{max} +2} \\
-%         A_{U 0} \cdot (U_{C C} \cdot \lambda_{max} +2) & =\frac{2}{U_{O V}} \cdot \frac{U_{C C}}{1} \\
-%         \lambda_{max} & =\frac{\frac{2\cdot U_{C C}}{U_{O V}} -2\cdot A_{U0}}{U_{CC}\cdot A_{U0}  } \\
-%         \lambda_{max} & =\frac{\frac{2\cdot \num{1.8}}{\num{0.2}} -2\cdot 10^{\frac{20}{20}}}{\num{1.8}\cdot 10^{\frac{20}{20}}} \\
-%         \lambda_{max} & =\qty{}{}
-%     \end{align*}
-    
+    Odhadovaná spotřeba zařízení:
+    \begin{align*}
+        P&=U_{CC}\cdot (I_{p5} +I_{p3} +I_{p4} ) \\
+        P&=\num{1.8}\cdot (\num{20e-6} +\num{20e-6} +\num{100e-6} ) \\
+        P&=\qty{252.00}{\micro W} \\
+    \end{align*}
 
+    Vstupní rozsah souhlasného napětí:
+    \begin{align*}
+        U_{ICMRmin} &= U_{TH,n}-U_{TH,p} +U_{OV3} \\ 
+        U_{ICMRmin} &= \num{387.106e-3}-\num{443.3e-3} +\num{0.2} \\ 
+        U_{ICMRmin} &= \qty{143,8}{mV}
+    \end{align*}
 
-% Nejprve vypočítám rozměry pro tranzistor \(M_{1} \):
-% \[
-%     \frac{W_{1} }{L}=\frac{2\cdot I_{D}}{KP_{N}\cdot (U_{GS} -U_{TH})^2 } 
-% \]
-% \[
-%     \frac{W_{1} }{L}=\frac{2\cdot \num{10e-6}}{\num{220e-6}\cdot (\num{0.2})^2 } 
-% \]
+    \begin{align*}
+        U_{ICMRmax} &= U_{TH,p} + U_{OV1} + U_{OV5}  \\ 
+        U_{ICMRmax} &= \num{443.3e-3} +\num{0.2}+\num{0.2} \\ 
+        U_{ICMRmax} &= \qty{843.3}{mV}
+    \end{align*}
 
-% \[
-%     \frac{W_{1} }{L}\doteq \num[round-mode=places,round-precision=2]{2.27} 
-% \]
-% Délku \(L\) zvolíme opět \qty{2}{\micro\meter}, tedy \(W_{1}= \qty{4.55}{\micro\meter}\).
+    Výstupní napětový rozsah:
+    \begin{align*}
+        OVS &= U_{CC} -U_{OV7} -U_{OV6} \\ 
+        OVS &= \num{1.8} -\num{0.2} -\num{0.2} \\
+        OVS &= \qty{1.4}{V}
+    \end{align*}
 
-% Pro velikost rezistoru \(R1\) je předpokládáno na výstupu napětí rovno polovině napájecího napětí, tedy platí:
-% \begin{align*}
-%     R_{1}  &= \frac{\frac{U_{CC}}{2}}{I_{D} } \\
-%     R_{1}  &= \frac{\frac{\num{1.8}}{2}}{\num{10e-6} } \\
-%     R_{1}  &= \qty{90}{k\ohm} \\
-% \end{align*}
+    Zesílení:
+    \begin{align*}
+    A_{U0} &= g_{m 1} \cdot\left(r_{D S 2} \| r_{D S 4}\right) \cdot g_{m 6} \cdot\left(r_{D S 6} \| r_{D S 7}\right) \\
+    A_{U0} &= \frac{2\cdot I_{1}}{U_{OV1}} 
+        \cdot\left(\frac{\frac{1}{\lambda_2 I_2} \cdot \frac{1}{\lambda_4 I_4}}{\frac{1}{\lambda_2 I_2}+\frac{1}{\lambda_4 I_4}}\right) \cdot \frac{2\cdot I_{6} }{U_{OV6} } 
+        \cdot\left(\frac{\frac{1}{\lambda_6 I_6} \cdot \frac{1}{\lambda_7 I_7}}{\frac{1}{\lambda_6 I_6}+\frac{1}{\lambda_7 I_7}}\right) \\
+    A_{U0} &= \frac{2\cdot \num{10e-6}}{\num{0.2}} 
+        \cdot\left(\frac{\frac{1}{\num{0.08}\cdot  \num{10e-6}} \cdot \frac{1}{\num{0.04}\cdot  \num{10e-6}}}{\frac{1}{\num{0.08}\cdot  \num{10e-6}}+\frac{1}{\num{0.04}\cdot  \num{10e-6}}}\right) \cdot \frac{2\cdot \num{100e-6} }{\num{0.2} } 
+        \cdot\left(\frac{\frac{1}{\num{0.04}\cdot  \num{100e-6}} \cdot \frac{1}{\num{0.08}\cdot  \num{100e-6}}}{\frac{1}{\num{0.04} \cdot \num{100e-6}}+\frac{1}{\num{0.08}\cdot  \num{100e-6}}}\right) \\
+        A_{U0} &= \num{6944.44} = \qty{76.83}{dB}
+    \end{align*}
 
-
-
-% \subsubsection{Očekávané hodnoty}
-%     Na základě zvolených parametrů součástek je potřeba přepočítat některé hodnoty. Proud \(I_{D} = \qty{10}{\micro A}\) byl zvolen pro \(SR=\qty{10}{V\per\micro\second}\), tímto se ale změní \(GBW\):
-%     \begin{align*}
-%         GBW & =\frac{\frac{2 \cdot I_D}{U_{O V}}}{2 \cdot \pi \cdot C_{O U T}} \\
-%         GBW & =\frac{\frac{2 \cdot \num{10e-6}}{\num{0.2}}}{2 \cdot \pi \cdot \num{1e-12}} \\
-%         GBW & =\qty{15.915}{MHz} \\
-%     \end{align*}
-
-%     Z rozměrů tranzistoru a tabulky z první úlohy odhadneme \(\lambda=\qty{0.0437895}{\per V}\), tedy očekáváme:
-%     \begin{align*}
-%         A_{U 0} & =\frac{2}{U_{O V}} \cdot \frac{U_{C C}}{U_{C C} \cdot \lambda_{max} +2} \\
-%         A_{U 0} & =\frac{2}{\num{0.2}} \cdot \frac{\num{1.8}}{\num{1.8} \cdot \num{0.0437895} +2} \\
-%         A_{U 0} & = \num{8.659} = \qty{18.749}{dB}
-%     \end{align*}
 
 
 

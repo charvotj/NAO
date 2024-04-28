@@ -17,7 +17,28 @@ fonts_setting = {
 plt.rcParams.update(fonts_setting)
 
 def make_AC_plot():
-    data = pd.read_csv('5/tex/data/aplikace_AC.txt', delimiter='	')
+    file_path = '5/tex/data/aplikace_AC.txt'
+    # prepare AC data file
+    with open(file_path, 'r',encoding='windows-1252') as file:
+        file_content = file.read()
+
+    # Perform the replacement
+    file_content = file_content.replace('Freq.	V(u_out)', 'f	Au	phase')
+    file_content = file_content.replace(',', '	')
+    file_content = file_content.replace('°)', '')
+    file_content = file_content.replace('(', '')
+    file_content = file_content.replace('dB', '')
+
+    # Write the modified content back to the file
+    with open(file_path, 'w',encoding='utf-8') as file:
+        file.write(file_content)
+
+    # Read data
+    data = pd.read_csv(file_path, delimiter='	')
+
+    # Subtract 180 from values greater than 0
+    data.loc[data['phase'] > 0, 'phase'] -= 360
+    data['phase'] += 180
     
     x_data = data['f']
     y1_data = data['Au']
@@ -30,9 +51,9 @@ def make_AC_plot():
     ax1.set_ylabel(r'$A_{U}$ [dB]', color='blue')
     ax1.tick_params(axis='y', labelcolor='blue')
 
-    x = 1000
+    x = 100
     y = y1_data[(x_data >= x).idxmax()]
-    ax1.annotate(r'$A_{U0}$='+f'{y:.2f} dB (f={(x/1000):.2f} kHz)', 
+    ax1.annotate(r'$A_{U0}$='+f'{y:.2f} dB (f={(x):.2f} Hz)', 
                 xy=(x,y), 
                 xytext=(x+0.2,y-25), 
                 arrowprops=dict(facecolor='black', arrowstyle='->'), 
@@ -41,17 +62,20 @@ def make_AC_plot():
 
     y -= 3    # -3dB
     x = x_data[(y1_data <= y).idxmax()-1]
-    ax1.annotate(r'$A_{U}$='+f'{y:.2f} dB '+r'($f_{-3dB}$'+f'={(x/1e6):.2f} MHz)', 
+    ax1.axvline(x=x, color='black', linestyle=':')
+    ax1.annotate(r'$A_{U}$='+f'{y:.2f} dB '+r'($f_{-3dB}$'+f'={(x/1e3):.2f} kHz)', 
                 xy=(x,y), 
-                xytext=(x+4e4,y), 
+                xytext=(1e4,y), 
                 arrowprops=dict(facecolor='black', arrowstyle='->'), 
                 fontsize=10)
     
     y = 0  # GBW
     x = x_data[(y1_data <= y).idxmax()]
+    ax1.axvline(x=x, color='black', linestyle=':')
+    ax1.axhline(y=y, color='black', linestyle=':')
     ax1.annotate(f'GBW={(x/1e6):.2f} MHz '+r'($A_{U}$='+f'{y:.2f} dB)', 
                 xy=(x,y), 
-                xytext=(1e4,y), 
+                xytext=(1e4,6), 
                 arrowprops=dict(facecolor='black', arrowstyle='->'), 
                 fontsize=10)
 
@@ -61,12 +85,43 @@ def make_AC_plot():
     ax2.plot(x_data, y2_data, label='Phase', color='red')
     ax2.set_ylabel(r'Fáze [$^\circ$]', color='red')
     ax2.tick_params(axis='y', labelcolor='red')
+    #   # Add ticks on ax2 with specific values
+    # existing_ticks = ax2.get_yticks()
+    # new_ticks = [-180]  # Adjust the new ticks as needed
+    # all_ticks = sorted(list(set(list(existing_ticks) + new_ticks)))
+    # ax2.set_yticks(all_ticks)
+    ax2.set_ylim(0,180)
+
+    # PM
+    index = (y1_data <= 0).idxmax()
+    x = x_data[index]
+    y = y2_data[index]
+    # ax1.axvline(x=x, color='black', linestyle=':')
+    # ax1.axhline(y=y, color='black', linestyle=':')
+    ax2.annotate(f'PM={y:.2f} '+r'$^\circ$', 
+                xy=(x,y), 
+                xytext=(1e8,y), 
+                arrowprops=dict(facecolor='black', arrowstyle='<-',relpos=(0,0),shrinkA=0,shrinkB=0,patchA=0,patchB=0), 
+                fontsize=10)
+    
+    # PM
+    index = (y2_data <= 0).idxmax()
+    x = x_data[index]
+    y = y1_data[index]
+    ax1.axvline(x=x, color='black', linestyle=':')
+    ax1.annotate(f'AM={y:.2f} dB', 
+                xy=(x,y), 
+                xytext=(1e2,y), 
+                arrowprops=dict(facecolor='black', arrowstyle='<-',relpos=(0,0),shrinkA=0,shrinkB=0,patchA=0,patchB=0), 
+                fontsize=10)
+    
 
     
     # plt.legend()
-    plt.xlim(1e3,1e7)
+    plt.xlim(1e2,10e7)
     # plt.ylim(bottom=0)
     plt.grid(True)  # Add gridlines
+    plt.tight_layout()
     plt.savefig("5/tex/img/AC.pdf")
     plt.show()
 
@@ -200,7 +255,7 @@ def make_TRAN_plot():
     # SR rise
     # y_values = [0.1*1.8, 0.9*1.8]
     # x_values = [x_data[(x_data > 6 and y2_data >= y_values[0]).idxmax()], x_data[(x_data > 6 and y2_data >= y_values[1]).idxmax()]]
-    y_values = [0.1*1.8, 0.9*1.8]
+    y_values = [0.1*1.8, 0.9*1.55]
     x_values = [x_data[(y2_data >= y_values[0]).idxmax()], x_data[(y2_data >= y_values[1]).idxmax()]]
     calc_value=abs(y_values[1]-y_values[0])/abs(x_values[1]-x_values[0])
     plt.annotate(r'$SR_{rise}='+f'{calc_value:.2f} '+r'V/\mu s $', 
@@ -210,7 +265,7 @@ def make_TRAN_plot():
                 fontsize=10)
 
     # SR fall
-    y_values = [0.1*1.8, 0.9*1.8]
+    y_values = [0.1*1.8, 0.9*1.55]
     plt.axhline(y_values[0],color='black', linestyle=':')
     plt.axhline(y_values[1],color='black', linestyle=':')
     x_values = [x_data[((x_data > 6) & (y2_data <= y_values[0])).idxmax()], x_data[((x_data > 6) & (y2_data <= y_values[1])).idxmax()]]
@@ -267,13 +322,6 @@ def main():
     make_OVS_plot()
     make_ICMR_plot()
     make_TRAN_plot()
-    # make_first_plot('4/tex/data/4-1-2ac.txt')
-    # make_second_plot('4/tex/data/4-1-3tran.txt')
-    # make_third_plot('4/tex/data/4-2-2ac.txt')
-    # another_plot('4/tex/data/4-2-3tran.txt')
-    # make_latex_table(data,'4/tex/tables/hodnoty.tex')
-   
-    # make_third_plot(data)
     
 
 
